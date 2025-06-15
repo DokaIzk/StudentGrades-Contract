@@ -38,7 +38,6 @@ contract TestStudentGrade is Test {
     }
 
     function testAssignScoreAndGradeCalculation() public {
-        console.log("Hello");
         gradeSystem.registerStudent(student1, "Otowo Samuel", "EIE");
 
         gradeSystem.assignScores(student1, "AIR101", 95);
@@ -47,14 +46,6 @@ contract TestStudentGrade is Test {
         vm.prank(student1);
         StudentGrade.Grades grade = gradeSystem.getMyGrade();
 
-        // vm.prank(student1);
-        // string[] memory subjects = gradeSystem.viewMySubjects();
-
-        // console.log("Number Of Subjects ", subjects.length);
-
-        // for (uint i = 0; i < subjects.length; i++) {
-        //     console.log("Subject:", subjects[i]);
-        // }
         assertEq(uint256(grade), uint256(StudentGrade.Grades.A));
     }
 
